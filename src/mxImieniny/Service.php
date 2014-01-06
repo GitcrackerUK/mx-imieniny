@@ -91,7 +91,10 @@ class Service
      */
     protected static function getDatabaseFile()
     {
-        self::setDatabaseFile(__DIR__ . '/data/imieniny.txt');
+        if (! self::$db) {
+            self::setDatabaseFile(__DIR__ . '/data/imieniny.txt');
+        }
+        
         return self::$db;
     }
 }
