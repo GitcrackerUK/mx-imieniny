@@ -53,14 +53,6 @@ class Service
     }
     
     /**
-     * @param string $filePath 
-     */
-    public static function setDatabaseFile($filePath)
-    {
-        self::$db=$filePath;
-    }
-    
-    /**
      * @param string $month
      * @param string $day
      * @return       string
@@ -72,7 +64,7 @@ class Service
             return self::$result[$month.$day];
         }
     
-        $fp=fopen(self::getDatabase(), 'r');
+        $fp=fopen(self::getDatabaseFile(), 'r');
         while (! feof($fp)) {
             if (fgets($fp, 5) == $day.$month) {
                 $line=str_replace(',', ', ', trim(fgets($fp, 500)));
@@ -85,16 +77,21 @@ class Service
         
         throw new InvalidArgumentException('Nie znaleziono imienin dla podanej daty');
     }
-    
+
+    /**
+     * @param string $filePath
+     */
+    public static function setDatabaseFile($filePath)
+    {
+        self::$db=$filePath;
+    }
+
     /**
      * @return string
      */
-    protected static function getDatabase()
+    protected static function getDatabaseFile()
     {
-        if (! self::$db) {
-            self::$db=__DIR__ . '/../data/imieniny.txt';
-        }
-
+        self::setDatabaseFile(__DIR__ . '/data/imieniny.txt');
         return self::$db;
     }
 }
