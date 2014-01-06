@@ -7,7 +7,7 @@ use InvalidArgumentException;
 class Service
 {
     /** @var string */
-    public static $db;
+    protected static $db;
 
     /** @var array */
     protected static $result;
@@ -41,6 +41,23 @@ class Service
     public static function getByTime($time)
     {
         return self::find(date('m', $time), date('d', $time));
+    }
+    
+    /**
+     * @return string
+     * @throws \InvalidArgumentException
+     */
+    public static function getNow()
+    {
+        return self::getByTime(time());
+    }
+    
+    /**
+     * @param string $filePath 
+     */
+    public static function setDatabaseFile($filePath)
+    {
+        self::$db=$filePath;
     }
     
     /**
