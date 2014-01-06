@@ -1,8 +1,8 @@
 {
-    "name": "mikemix/mxImieniny",
+    "name": "mikemix/mx-imieniny",
     "description": "Wyświetl imieniny na dany dzień",
     "keywords": ["imieniny"],
-    "homepage": "http://github.com/mikemix/mxImieniny",
+    "homepage": "http://github.com/mikemix/mx-imieniny",
     "license": "MIT",
     "authors": [
         {
