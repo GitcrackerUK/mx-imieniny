@@ -302,6 +302,7 @@
 2910Euzebii,Wioletty,Felicjana
 3010Zenobii,Przemysława,Edmunda
 3110Urbana,Saturnina,Krzysztofa
+0111Wszystkich Świętych
 0211Bohdany,Bożydara
 0311Sylwii,Marcina,Huberta
 0411Karola,Olgierda
